@@ -73,13 +73,13 @@ do ($ = window.jQuery, window) ->
 
       value = not not value
 
-      @$element.prop("checked", value).trigger "change.bootstrapSwitch", skip
+      @$element.prop("checked", value).trigger "changed.bootstrapSwitch", skip
       @$element
 
     toggleState: (skip) ->
       return @$element if @options.disabled or @options.readonly
 
-      @$element.prop("checked", not @options.state).trigger "change.bootstrapSwitch", skip
+      @$element.prop("checked", not @options.state).trigger "changed.bootstrapSwitch", skip
 
     size: (value) ->
       return @options.size if typeof value is "undefined"
@@ -194,7 +194,7 @@ do ($ = window.jQuery, window) ->
 
     _elementHandlers: ->
       @$element.on
-        "change.bootstrapSwitch": (e, skip) =>
+        "changed.bootstrapSwitch": (e, skip) =>
           e.preventDefault()
           e.stopPropagation()
           e.stopImmediatePropagation()
@@ -209,7 +209,7 @@ do ($ = window.jQuery, window) ->
           .addClass if checked then "#{@options.baseClass}-on" else "#{@options.baseClass}-off"
 
           unless skip
-            $("[name='#{@$element.attr('name')}']").not(@$element).prop("checked", false).trigger "change.bootstrapSwitch", true if @$element.is ":radio"
+            $("[name='#{@$element.attr('name')}']").not(@$element).prop("checked", false).trigger "changed.bootstrapSwitch", true if @$element.is ":radio"
             @$element.trigger "switchChange.bootstrapSwitch", [checked]
 
         "focus.bootstrapSwitch": (e) =>
@@ -283,6 +283,8 @@ do ($ = window.jQuery, window) ->
           e.preventDefault()
 
           @drag = true
+          @draged = false
+          @dragStartPos = {x: e.clientX, y: e.clientY}
           @$wrapper.removeClass "#{@options.baseClass}-animate" if @options.animate
           @$element.trigger "focus.bootstrapSwitch"
 
@@ -292,12 +294,25 @@ do ($ = window.jQuery, window) ->
           e.preventDefault()
 
           @drag = false
-          @$element.prop("checked", parseInt(@$container.css("margin-left"), 10) > -(@$container.width() / 6)).trigger "change.bootstrapSwitch"
+          @dragStopPos = {x: e.clientX, y: e.clientY}
+
+          if(Math.abs(@dragStartPos.x - @dragStopPos.x) <= 5 || Math.abs(@dragStartPos.y - @dragStopPos.y) <= 5)
+            @$container.css "margin-left", ""
+            @$wrapper.addClass "#{@options.baseClass}-animate" if @options.animate
+            return
+
+          @draged = true
+          @$element.prop("checked", parseInt(@$container.css("margin-left"), 10) > -(@$container.width() / 6)).trigger "changed.bootstrapSwitch"
           @$container.css "margin-left", ""
           @$wrapper.addClass "#{@options.baseClass}-animate" if @options.animate
 
         "mouseleave.bootstrapSwitch": (e) =>
           @$label.trigger "mouseup.bootstrapSwitch"
+
+        "click.bootstrapSwitch": (e) =>
+          return if @draged is true
+          @state !@options.state
+          @$element.trigger "changed.bootstrapSwitch"
 
     _formHandler: ->
       $form = @$element.closest "form"
