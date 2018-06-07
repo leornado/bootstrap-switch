@@ -91,6 +91,44 @@ html(lang='en')
           | <a href="https://github.com/nostalgiaz/bootstrap-switch/pulls">pull request</a> with your changes. Every
           | help is needed. Many thanks.
 
+      #examples-3
+        h2.page-header Examples
+
+        h3 State
+        .row
+          .col-sm-6
+            input(type='checkbox', id='state-switch' checked)
+          .col-sm-6
+            .btn-group.pull-right
+              button(type='button', id='state-switch-state', class='btn btn-default') Get State
+              button(type='button', id='state-switch-on', class='btn btn-default') Set On
+              button(type='button', id='state-switch-off', class='btn btn-default') Set Off
+              button(type='button', id='state-switch-toggle', class='btn btn-default') Toggle State
+
+        h3 Size
+        .row
+          .col-sm-12
+            input(type='checkbox', id='switch-mini' checked)
+            input(type='checkbox', id='switch-small' checked)
+            input(type='checkbox', id='switch-normal' checked)
+            input(type='checkbox', id='switch-large' checked)
+
+        h3 Color
+        .row
+          .col-sm-12
+            input(type='checkbox', id='switch-on-primary' checked)
+            input(type='checkbox', id='switch-on-info' checked)
+            input(type='checkbox', id='switch-on-success' checked)
+            input(type='checkbox', id='switch-on-warning' checked)
+            input(type='checkbox', id='switch-on-danger' checked)
+        .row
+          .col-sm-12
+            input(type='checkbox', id='switch-off-primary')
+            input(type='checkbox', id='switch-off-info')
+            input(type='checkbox', id='switch-off-success')
+            input(type='checkbox', id='switch-off-warning')
+            input(type='checkbox', id='switch-off-danger')
+
       #new
         h1.page-header What's new in version 3
 
@@ -304,25 +342,6 @@ html(lang='en')
                 td
                   | event (<a href="https://api.jquery.com/category/events/event-object/" target="_blank">jQuery Event object</a>),
                   | state (true | false)
-
-        #examples-3
-          h2.page-header Examples
-
-          p To be included
-          //
-            h3 State
-            .row
-              .col-sm-6
-                input(type='checkbox', id='state-switch' checked)
-              .col-sm-6
-                .btn-group.pull-right
-                  button(type='button', id='state-switch-state', class='btn btn-default') Get State
-                  &nbsp;
-                  button(type='button', id='state-switch-on', class='btn btn-default') Set On
-                  &nbsp;
-                  button(type='button', id='state-switch-off', class='btn btn-default') Set Off
-                  &nbsp;
-                  button(type='button', id='state-switch-toggle', class='btn btn-default') Toggle State
 
       #documentation-2
         h1.page-header Documentation <small>version 2.0.1 (Legacy)</small>

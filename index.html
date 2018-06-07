@@ -36,8 +36,8 @@
           <ul class="nav navbar-nav">
             <li class="dropdown"><a href="#" data-toggle="dropdown">Download<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/3.0.zip">3 (Stable)</a></li>
-                <li><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/master.zip">2.0.1 (Legacy)</a></li>
+                <li><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/master.zip">3 (Stable)</a></li>
+                <li><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/v2.0.1.zip">2.0.1 (Legacy)</a></li>
               </ul>
             </li>
             <li><a href="#new">What's new</a></li>
@@ -68,7 +68,7 @@
         <p>
           <input type="checkbox" name="download-version" checked data-size="large" data-on-text="3" data-off-text="2.0.1">
         </p>
-        <p><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/3.0.zip" id="download-3" class="btn btn-lg btn-primary">Download 3</a><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/master.zip" id="download-2" class="btn btn-lg btn-primary">Download 2.0.1</a></p><br><br>
+        <p><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/master.zip" id="download-3" class="btn btn-lg btn-primary">Download 3</a><a href="https://github.com/nostalgiaz/bootstrap-switch/archive/v2.0.1.zip" id="download-2" class="btn btn-lg btn-primary">Download 2.0.1</a></p><br><br>
         <iframe src="http://ghbtns.com/github-btn.html?user=nostalgiaz&amp;repo=bootstrap-switch&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="184" height="30"></iframe>
         <iframe src="http://ghbtns.com/github-btn.html?user=nostalgiaz&amp;repo=bootstrap-switch&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="144" height="30"></iframe><br><br><br>
       </div>
@@ -81,6 +81,51 @@
           <a href="https://github.com/nostalgiaz/bootstrap-switch/pulls">pull request</a> with your changes. Every
           help is needed. Many thanks.
         </p>
+      </div>
+      <div id="examples-3">
+        <h2 class="page-header">Examples</h2>
+        <h3>State</h3>
+        <div class="row">
+          <div class="col-sm-6">
+            <input type="checkbox" id="state-switch" checked>
+          </div>
+          <div class="col-sm-6">
+            <div class="btn-group pull-right">
+              <button type="button" id="state-switch-state" class="btn btn-default">Get State</button>
+              <button type="button" id="state-switch-on" class="btn btn-default">Set On</button>
+              <button type="button" id="state-switch-off" class="btn btn-default">Set Off</button>
+              <button type="button" id="state-switch-toggle" class="btn btn-default">Toggle State</button>
+            </div>
+          </div>
+        </div>
+        <h3>Size</h3>
+        <div class="row">
+          <div class="col-sm-12">
+            <input type="checkbox" id="switch-mini" checked>
+            <input type="checkbox" id="switch-small" checked>
+            <input type="checkbox" id="switch-normal" checked>
+            <input type="checkbox" id="switch-large" checked>
+          </div>
+        </div>
+        <h3>Color </h3>
+        <div class="row">
+          <div class="col-sm-12">
+            <input type="checkbox" id="switch-on-primary" checked>
+            <input type="checkbox" id="switch-on-info" checked>
+            <input type="checkbox" id="switch-on-success" checked>
+            <input type="checkbox" id="switch-on-warning" checked>
+            <input type="checkbox" id="switch-on-danger" checked>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <input type="checkbox" id="switch-off-primary">
+            <input type="checkbox" id="switch-off-info">
+            <input type="checkbox" id="switch-off-success">
+            <input type="checkbox" id="switch-off-warning">
+            <input type="checkbox" id="switch-off-danger">
+          </div>
+        </div>
       </div>
       <div id="new">
         <h1 class="page-header">What's new in version 3</h1>
@@ -313,26 +358,6 @@ $.fn.bootstrapSwitch.defaults.onColor = 'success';</code></pre>
               </tr>
             </tbody>
           </table>
-        </div>
-        <div id="examples-3">
-          <h2 class="page-header">Examples</h2>
-          <p>To be included</p>
-          <!--
-          h3 State
-          .row
-            .col-sm-6
-              input(type='checkbox', id='state-switch' checked)
-            .col-sm-6
-              .btn-group.pull-right
-                button(type='button', id='state-switch-state', class='btn btn-default') Get State
-                &nbsp;
-                button(type='button', id='state-switch-on', class='btn btn-default') Set On
-                &nbsp;
-                button(type='button', id='state-switch-off', class='btn btn-default') Set Off
-                &nbsp;
-                button(type='button', id='state-switch-toggle', class='btn btn-default') Toggle State
-                
-          -->
         </div>
       </div>
       <div id="documentation-2">
