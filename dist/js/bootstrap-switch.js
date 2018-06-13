@@ -109,11 +109,11 @@
 
       BootstrapSwitch.prototype._constructor = BootstrapSwitch;
 
-      BootstrapSwitch.prototype.state = function(value, skip) {
+      BootstrapSwitch.prototype.state = function(value, skip, force) {
         if (typeof value === "undefined") {
           return this.options.state;
         }
-        if (this.options.disabled || this.options.readonly) {
+        if ((this.options.disabled || this.options.readonly) && !force) {
           return this.$element;
         }
         value = !!value;
@@ -121,8 +121,8 @@
         return this.$element;
       };
 
-      BootstrapSwitch.prototype.toggleState = function(skip) {
-        if (this.options.disabled || this.options.readonly) {
+      BootstrapSwitch.prototype.toggleState = function(skip, force) {
+        if ((this.options.disabled || this.options.readonly) && !force) {
           return this.$element;
         }
         return this.$element.prop("checked", !this.options.state).trigger("changed.bootstrapSwitch", skip);
@@ -423,7 +423,7 @@
           })(this),
           "click.bootstrapSwitch": (function(_this) {
             return function(e) {
-              if (_this.draged === true) {
+              if (_this.draged === true || _this.options.readonly === true) {
                 return;
               }
               _this.state(!_this.options.state);

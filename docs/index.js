@@ -30,14 +30,26 @@ $(function () {
   $('input[type="checkbox"],[type="radio"]').not('#create-switch').not('#events-switch').bootstrapSwitch();
 
   // state
+  $('#state-switch-toggle-force').on('click', function () {
+    $stateSwitch.bootstrapSwitch('toggleState', undefined, true);
+  });
   $('#state-switch-toggle').on('click', function () {
     $stateSwitch.bootstrapSwitch('toggleState');
+  });
+  $('#state-switch-readonly').on('click', function () {
+    $stateSwitch.bootstrapSwitch('readonly', !$stateSwitch.bootstrapSwitch('readonly'));
   });
   $('#state-switch-on').on('click', function () {
     $stateSwitch.bootstrapSwitch('state', true);
   });
   $('#state-switch-off').on('click', function () {
     $stateSwitch.bootstrapSwitch('state', false);
+  });
+  $('#state-switch-on-force').on('click', function () {
+    $stateSwitch.bootstrapSwitch('state', true, undefined, true);
+  });
+  $('#state-switch-off-force').on('click', function () {
+    $stateSwitch.bootstrapSwitch('state', false, undefined, true);
   });
   $('#state-switch-state').on('click', function () {
     alert($stateSwitch.bootstrapSwitch('state'));

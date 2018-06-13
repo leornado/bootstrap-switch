@@ -67,17 +67,17 @@ do ($ = window.jQuery, window) ->
 
     _constructor: BootstrapSwitch
 
-    state: (value, skip) ->
+    state: (value, skip, force) ->
       return @options.state if typeof value is "undefined"
-      return @$element if @options.disabled or @options.readonly
+      return @$element if (@options.disabled or @options.readonly) and !force
 
       value = not not value
 
       @$element.prop("checked", value).trigger "changed.bootstrapSwitch", skip
       @$element
 
-    toggleState: (skip) ->
-      return @$element if @options.disabled or @options.readonly
+    toggleState: (skip, force) ->
+      return @$element if (@options.disabled or @options.readonly) and !force
 
       @$element.prop("checked", not @options.state).trigger "changed.bootstrapSwitch", skip
 
@@ -310,7 +310,7 @@ do ($ = window.jQuery, window) ->
           @$label.trigger "mouseup.bootstrapSwitch"
 
         "click.bootstrapSwitch": (e) =>
-          return if @draged is true
+          return if @draged is true or @options.readonly is true
           @state !@options.state
           @$element.trigger "changed.bootstrapSwitch"
 
