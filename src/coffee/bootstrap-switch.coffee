@@ -34,9 +34,11 @@ do ($ = window.jQuery, window) ->
         class: "#{@options.baseClass}-container"
       @$on = $ "<span>",
         html: @options.onText,
+        title: @options.onText,
         class: "#{@options.baseClass}-handle-on #{@options.baseClass}-#{@options.onColor}"
       @$off = $ "<span>",
         html: @options.offText,
+        title: @options.offText,
         class: "#{@options.baseClass}-handle-off #{@options.baseClass}-#{@options.offColor}"
       @$label = $ "<label>",
         for: @$element.attr "id"

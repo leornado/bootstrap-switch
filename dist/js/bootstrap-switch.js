@@ -1,5 +1,5 @@
 /* ========================================================================
- * bootstrap-switch - v3.0.0
+ * bootstrap-switch - v3.0.0.4
  * http://www.bootstrap-switch.org
  * ========================================================================
  * Copyright 2012-2013 Mattia Larentis
@@ -77,10 +77,12 @@
         });
         this.$on = $("<span>", {
           html: this.options.onText,
+          title: this.options.onText,
           "class": "" + this.options.baseClass + "-handle-on " + this.options.baseClass + "-" + this.options.onColor
         });
         this.$off = $("<span>", {
           html: this.options.offText,
+          title: this.options.offText,
           "class": "" + this.options.baseClass + "-handle-off " + this.options.baseClass + "-" + this.options.offColor
         });
         this.$label = $("<label>", {

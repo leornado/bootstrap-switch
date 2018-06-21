@@ -1,5 +1,5 @@
 /* ========================================================================
- * bootstrap-switch - v3.0.0
+ * bootstrap-switch - v3.0.0.4
  * http://www.bootstrap-switch.org
  * ========================================================================
  * Copyright 2012-2013 Mattia Larentis
@@ -133,6 +133,8 @@
   text-align: center;
   z-index: 1;
   width: 33.333333333%;
+  word-break: normal;
+  white-space: nowrap;
 }
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {

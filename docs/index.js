@@ -27,7 +27,9 @@ $(function () {
   });
 
   // initialize all the inputs
-  $('input[type="checkbox"],[type="radio"]').not('#create-switch').not('#events-switch').bootstrapSwitch();
+  $('input[type="checkbox"],[type="radio"]').not('#create-switch').not('#events-switch').bootstrapSwitch({
+    onText:'ononon onononon'
+  });
 
   // state
   $('#state-switch-toggle-force').on('click', function () {
